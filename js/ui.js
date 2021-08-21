@@ -1,35 +1,27 @@
 class ChatUI {
     constructor() {
-        this.list = document.querySelector('.chat-list');
-        this.rooms = document.querySelectorAll('.chat-rooms > button');
-        this.messageInput = document.querySelector('.new-chat');
+        this.list = document.querySelector('.list');
     }
     render(data) {
-        let when = dateFns.distanceInWordsToNow(
+        let date = dateFns.distanceInWordsToNow(
             data.created_at.toDate(),
             {addSuffix: true}
         );
         let html = `
-            <li class="list-group-item">
-                <span class="username">${data.username}:</span>
+            <li>
+                <span class="username">${data.username}: </span>
                 <span class="message">${data.message}</span>
-                <div class="date">${when}</div>
+                <div class="created-at">${date}</div>
             </li>
         `;
         this.list.innerHTML += html;
     }
-    changeRoom(target) {
-        chatRoom.updataRoom(target.getAttribute('id'));
+    clearList() {
+        [...this.list.children].forEach(li => {
+            li.remove()
+        });
     }
-    ClearRoom() {
-        [...this.list.children].forEach(child => {
-            child.remove()
-        })
-    }
-    sendMessage(input) {
-        let ms = input.message.value.trim();
-        chatRoom.addChat(ms)
-            .then(() => input.reset())
-            .catch(err => console.log(err))
+    changingRooms(room) {
+        chatroom.changeRoom(room);
     }
 }

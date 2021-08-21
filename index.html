@@ -4,72 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Chat-Application</title>
+    <title>Chat-App</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- container & title -->
-    <div class="container my-4">
-        <h1 class="my-4 text-center">Ninja Chat</h1>
-        <!-- buttons for chatrooms -->
-        <div class="chat-rooms mb-3 text-center">
-            <div class="my-2">Choose a chatroom:</div>
-            <button class="btn" id="general">#general</button>
-            <button class="btn" id="gaming">#gaming</button>
-            <button class="btn" id="music">#music</button>
-            <button class="btn" id="ninjas">#ninjas</button>
+    <!-- HTML Template -->
+    <div class="container">
+        <h1>Chat-App</h1>
+
+        <!-- Chatrooms -->
+        <div class="rooms">
+            <span>Choose a chatroom:</span>
+            <button id="general">#general</button>
+            <button id="gaming">#gaming</button>
+            <button id="music">#music</button>
+            <button id="programming">#programming</button>
         </div>
-        <!-- chat list / window -->
-        <div class="chat-window">
-            <ul class="chat-list list-group"></ul>
-        </div>
-        <!-- new chat form -->
-        <form class="new-chat my-3">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Your message:</div>
-                </div>
-                <input type="text" id="message" class="form-control" required autocomplete="off">
-                <div class="input-group-append">
-                    <input type="submit" class="btn" value="send">
-                </div>
+
+        <!-- Chat List -->
+        <ul class="list"></ul>
+
+        <!-- Send Message -->
+        <form class="send-message">
+            <div class="input">
+                <input type="text" id="message" autocomplete="off" placeholder="Your Message...">
+                <input type="submit" value="Send">
             </div>
         </form>
-        <!-- update name form -->
-        <form class="new-name my-3">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">Update name:</div>
-                </div>
-                <input type="text" id="name" class="form-control" required>
-                <div class="input-group-append">
-                    <input type="submit" class="btn" value="update">
-                </div>
+
+        <!-- Update Name -->
+        <form class="update-name">
+            <div class="input">
+                <input type="text" id="name" autocomplete="off" placeholder="Update Your Name...">
+                <input type="submit" value="Update">
             </div>
-            <div class="update-mssg"></div>
+            <div class="notfication"></div>
         </form>
     </div>
-    <!-- Date FNS -->
+
+    <!-- Date_Fns -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/date-fns/1.30.1/date_fns.min.js" integrity="sha512-F+u8eWHrfY8Xw9BLzZ8rG/0wIvs0y+JyRJrXjp3VjtFPylAEEGwKbua5Ip/oiVhaTDaDs4eU2Xtsxjs/9ag2bQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.9.0/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
     <script>
         var firebaseConfig = {
-            apiKey: "AIzaSyBzqOQazNLzeJ3nUxCsM3btcBtmzlJHK6Q",
-            authDomain: "chat-app-4a679.firebaseapp.com",
-            projectId: "chat-app-4a679",
-            storageBucket: "chat-app-4a679.appspot.com",
-            messagingSenderId: "972526108581",
-            appId: "1:972526108581:web:af72d015a903e284ee324c",
-            measurementId: "G-YB95YX5EP3"
+            apiKey: "AIzaSyD1qGHFDvR5Y7YAoCvFbc2yUGoKSCyVeI8",
+            authDomain: "chat-app-531ba.firebaseapp.com",
+            projectId: "chat-app-531ba",
+            storageBucket: "chat-app-531ba.appspot.com",
+            messagingSenderId: "809591922213",
+            appId: "1:809591922213:web:7f5ebf4930deca883369cc",
+            measurementId: "G-WM5367LHJL"
         };
-        // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
     </script>
-    <!-- Scirpts -->
+
+    <!-- Scripts -->
     <script src="js/chat.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/app.js"></script>
